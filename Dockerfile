@@ -9,7 +9,7 @@ WORKDIR /opt
 RUN apk add --no-cache gettext
 
 COPY auth.conf auth.htpasswd launch.sh ./
-RUN chmod -R 0770 /etc/nginx
+RUN chmod -R 0770 /etc/nginx /var/cache/nginx/client_temp
 RUN sed -i -E -e '/^user\s+nginx;$/d' /etc/nginx/nginx.conf
 
 
